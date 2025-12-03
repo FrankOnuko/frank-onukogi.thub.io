@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Konuko Data Analytics📊</title>
+<title>Welcome😊</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -110,7 +110,6 @@
         transition: transform 0.2s;
     }
 
-    /* Swing animation on hover */
     @keyframes swing {
         0% { transform: rotate(0deg); }
         25% { transform: rotate(5deg); }
@@ -123,7 +122,6 @@
         animation: swing 0.5s ease;
     }
 
-    /* Overlay details */
     .service-box .overlay {
         position: absolute;
         top: 0;
@@ -240,32 +238,38 @@
     }
 
     /* Chatbot styles */
-    #chatbot {
+    #chatbot-header {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #0077cc;
+        color: white;
+        font-size: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
         position: fixed;
         bottom: 20px;
         right: 20px;
-        width: 300px;
-        font-family: Arial, sans-serif;
-        z-index: 1000;
-    }
-
-    #chatbot-header {
-        background-color: #0077cc;
-        color: white;
-        padding: 10px;
-        border-radius: 10px 10px 0 0;
-        cursor: pointer;
+        z-index: 1500;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         text-align: center;
     }
 
     #chatbot-body {
         display: none;
+        position: fixed;
+        bottom: 90px; /* above circular button */
+        right: 20px;
+        width: 300px;
         background-color: #f0f4f8;
         border: 1px solid #ccc;
-        border-radius: 0 0 10px 10px;
+        border-radius: 10px;
         max-height: 400px;
         overflow-y: auto;
         padding: 10px;
+        z-index: 1400;
     }
 
     #chatbot-messages {
@@ -302,6 +306,25 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+    }
+
+    /* WhatsApp Button slightly above Chatbot */
+    #whatsapp-btn {
+        position: fixed;
+        bottom: 100px; /* slightly above chatbot button */
+        right: 20px;
+        z-index: 2000;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    #whatsapp-btn img {
+        width: 55px;
+        height: 55px;
+    }
+
+    #whatsapp-btn:hover {
+        transform: scale(1.1);
     }
 </style>
 </head>
@@ -428,7 +451,7 @@
 
 <!-- Chatbot -->
 <div id="chatbot">
-    <div id="chatbot-header" onclick="toggleChat()">Chat with us 💬</div>
+    <div id="chatbot-header" onclick="toggleChat()">💬</div>
     <div id="chatbot-body">
         <div id="chatbot-messages"></div>
         <input type="text" id="chatbot-input" placeholder="Type a message..." onkeydown="if(event.key==='Enter'){sendMessage();}">
@@ -436,9 +459,14 @@
     </div>
 </div>
 
+<!-- WhatsApp Button -->
+<a href="https://wa.me/254740784274" target="_blank" id="whatsapp-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+</a>
+
 <script>
     // Salutation
-    let visitorName = ""; // Replace with login info if available
+    let visitorName = ""; 
     const salutation = document.getElementById("salutation");
     if(visitorName) {
         salutation.textContent = `Hey, ${visitorName}! Welcome to our page. Take a look at some of our services.`;
@@ -503,5 +531,3 @@
 
 </body>
 </html>
-
-
